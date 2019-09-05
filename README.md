@@ -9,7 +9,7 @@ The requirement package
 $ sudo apt-get update && sudo apt-get upgrade
 $ sudo apt-get install apt-transport-https openjdk-8-jre-headless uuid-runtime pwgen
 ```
-> pwgn - just server1
+> pwgn - just server1<
 MongoDB
 ```
 $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
