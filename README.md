@@ -32,7 +32,7 @@ sudo apt update
 sudo apt install -y elasticsearch
 ```
 Browse through the file, and enter the following configurations (replace the IPs with your node IPs):
-> /etc/elasticsearch/elastic.yml
+> /etc/elasticsearch/elasticsearch.yml
 ```
 cluster.name: graylog
 node.name: ${HOSTNAME}
