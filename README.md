@@ -4,7 +4,8 @@ Graylog is an open-source log management tool that collect, index and analyze an
 #### Prerequisites
 we have needed 3 server
 ## server1, 2 & 3:
-The requirement package
+We need this additional packages:
+apt-transport-https openjdk-8-jre-headless uuid-runtime pwgen
 ```
 $ sudo apt-get update && sudo apt-get upgrade
 $ sudo apt-get install apt-transport-https openjdk-8-jre-headless uuid-runtime pwgen
@@ -32,9 +33,3 @@ sudo apt install -y elasticsearch
 ```
 Graylog Server
 ### 
-We need this additional packages:
-apt-transport-https openjdk-8-jre-headless uuid-runtime pwgen
-```
-$ sudo apt-get update && sudo apt-get upgrade
-$ sudo apt-get install apt-transport-https openjdk-8-jre-headless uuid-runtime pwgen
-```
