@@ -11,18 +11,6 @@ $ sudo apt-get update && sudo apt-get upgrade
 $ sudo apt-get install apt-transport-https openjdk-8-jre-headless uuid-runtime pwgen
 ```
 > pwgn - just server1 
-#### MongoDB
-```
-$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
-$ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
-$ sudo apt-get update
-$ sudo apt-get install -y mongodb-org
-```
-The last step is to enable MongoDB during the operating system’s startup:
-```
-$ sudo systemctl enable mongod.service
-$ sudo systemctl restart mongod.service
-```
 #### Elasticsearch
 ```
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
@@ -53,5 +41,43 @@ query Elasticsearch from any of the cluster nodes:
 ```
 curl -XGET 'http://localhost:9200/_cluster/state?pretty'
 ```
+## server1
 Graylog Server
-### 
+#### MongoDB
+```
+$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+$ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
+$ sudo apt-get update
+$ sudo apt-get install -y mongodb-org
+```
+The last step is to enable MongoDB during the operating system’s startup:
+```
+$ sudo systemctl enable mongod.service
+$ sudo systemctl restart mongod.service
+```
+#### Graylog
+Install the Graylog repository configuration and Graylog itself with the following commands:
+```
+$ wget https://packages.graylog2.org/repo/packages/graylog-3.0-repository_latest.deb
+$ sudo dpkg -i graylog-3.0-repository_latest.deb
+$ sudo apt-get update && sudo apt-get install graylog-server
+$ pwgen -N 1 -s 96
+```
+Output:
+```
+luPmJZjN2wcfsKdE8rHJ428nzpi9C6lYxhpWbIhqDZVAdfXsz9EP8hCOvMoCFp3DxK5STx8a6kMps3P0ePdmW83VWjB0CIS4
+```
+Browse through the file, and enter the following configurations:
+```
+password_secret = luPmJZjN2wcfsKdE8rHJ428nzpi9C6lYxhpWbIhqDZVAdfXsz9EP8hCOvMoCFp3DxK5STx8a6kMps3P0ePdmW83VWjB0CIS4
+root_password_sha2 = 
+root_email = youremailaddress@yourdomainaddress.com
+root_timezone = UTC
+is_master = true
+elasticsearch_max_docs_per_index = 20000000
+elasticsearch_max_number_of_indices = 20
+elasticsearch_shards =
+elasticsearch_replicas =
+http_bind_address = your-server-ip:9000
+
+```
