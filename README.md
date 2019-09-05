@@ -20,7 +20,6 @@ $ sudo apt-get install -y mongodb-org
 ```
 The last step is to enable MongoDB during the operating system’s startup:
 ```
-$ sudo systemctl daemon-reload
 $ sudo systemctl enable mongod.service
 $ sudo systemctl restart mongod.service
 ```
