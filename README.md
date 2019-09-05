@@ -67,17 +67,27 @@ Output:
 ```
 luPmJZjN2wcfsKdE8rHJ428nzpi9C6lYxhpWbIhqDZVAdfXsz9EP8hCOvMoCFp3DxK5STx8a6kMps3P0ePdmW83VWjB0CIS4
 ```
+```
+echo -n yourpassword | sha256sum
+```
+Output:
+```
+e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a
+```
 Browse through the file, and enter the following configurations:
 ```
 password_secret = luPmJZjN2wcfsKdE8rHJ428nzpi9C6lYxhpWbIhqDZVAdfXsz9EP8hCOvMoCFp3DxK5STx8a6kMps3P0ePdmW83VWjB0CIS4
-root_password_sha2 = 
+root_password_sha2 = e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a
 root_email = youremailaddress@yourdomainaddress.com
 root_timezone = UTC
 is_master = true
 elasticsearch_max_docs_per_index = 20000000
 elasticsearch_max_number_of_indices = 20
-elasticsearch_shards =
-elasticsearch_replicas =
+elasticsearch_shards = 3
+elasticsearch_replicas = 3
 http_bind_address = your-server-ip:9000
-
+```
+Restart Graylog service.
+```
+sudo systemctl restart graylog-server
 ```
