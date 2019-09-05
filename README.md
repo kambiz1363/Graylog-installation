@@ -86,6 +86,8 @@ elasticsearch_max_number_of_indices = 20
 elasticsearch_shards = 3
 elasticsearch_replicas = 3
 http_bind_address = your-server-ip:9000
+elasticsearch_discovery_zen_ping_multicast_enabled = false
+elasticsearch_discovery_zen_ping_unicast_hosts = 192.168.43.37:9300,192.168.43.38:9300,192.168.43.39:9300
 ```
 Restart Graylog service.
 ```
