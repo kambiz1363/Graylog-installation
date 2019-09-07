@@ -27,7 +27,6 @@ node.master: true
 node.data: true
 path.data: /opt/elasticsearch/data
 path.logs: /opt/elasticsearch/log
-bootstrap.memory_lock: true
 network.host: 192.168.43.37 # or 0.0.0.0
 http.port: 9200
 discovery.zen.ping.unicast.hosts: ["192.168.251.2","192.168.251.3","192.168.251.4"]
