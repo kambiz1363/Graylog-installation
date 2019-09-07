@@ -92,3 +92,4 @@ Restart Graylog service.
 ```
 sudo systemctl restart graylog-server
 ```
+.
