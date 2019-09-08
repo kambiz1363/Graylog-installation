@@ -29,7 +29,7 @@ path.data: /opt/elasticsearch/data
 path.logs: /opt/elasticsearch/log
 network.host: 192.168.43.37 # or 0.0.0.0
 http.port: 9200
-discovery.zen.ping.unicast.hosts: ["192.168.251.2","192.168.251.3","192.168.251.4"]
+discovery.zen.ping.unicast.hosts: ["192.168.43.37","192.168.43.38","192.168.43.39"]
 discovery.zen.minimum_master_nodes: 2
 ```
 Running Your Elasticsearch Cluster
